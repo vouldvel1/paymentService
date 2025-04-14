@@ -2,10 +2,7 @@ package com.bank.paymentservice.model.entity;
 
 import com.bank.paymentservice.model.enums.PaymentTransactionStatus;
 import com.bank.paymentservice.model.enums.converter.PaymentTransactionStatusConverter;
-import jakarta.persistence.Convert;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +33,7 @@ public class PaymentTransaction extends BaseEntity {
     @JoinColumn(name = "destinationBankAccoundId")
     private BankAccount destinationBankAccount;
 
-    @OneToMany
+    @OneToMany(mappedBy = "paymentTransaction", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Refund> refunds;
 
 
