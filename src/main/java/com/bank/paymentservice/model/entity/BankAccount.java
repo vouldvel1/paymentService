@@ -1,6 +1,5 @@
 package com.bank.paymentservice.model.entity;
 
-import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,6 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Enabled
 @Getter
 @Setter
 @NoArgsConstructor
