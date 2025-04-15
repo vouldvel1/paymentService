@@ -27,9 +27,4 @@ public class BaseEntity {
 
     @Version
     private Long version;
-
-    public BaseEntity() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
 }
