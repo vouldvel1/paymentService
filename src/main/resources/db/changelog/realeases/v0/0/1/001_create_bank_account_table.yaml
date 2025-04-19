@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_create_bank_account
+      author: Polyanitsa Mark
+      changes:
+        - createTable:
+            tableName: bank_account
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    autoIncrement: true
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: number
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: balance
+                  type: decimal(19,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+
