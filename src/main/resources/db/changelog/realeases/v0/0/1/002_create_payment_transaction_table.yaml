@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 001_create_bank_account
+      id: 002_create_payment_transaction
       author: Polyanitsa Mark
       changes:
         - createTable:
