@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_create_bank_account
+      author: Polyanitsa Mark
+      changes:
+        - createTable:
+            tableName: payment_transaction
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    autoIncrement: true
+              - column:
+                  name: amount
+                  type: decimal(19,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: mirror_message
+                  type: text
+              - column:
+                  name: source_bank_account_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_payment_account_id
+                    referencedTableName: bank_account
+                    referencedColumnNames: id
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+
+
