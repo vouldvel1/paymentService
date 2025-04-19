@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_create_refund
+      author: Polyanitsa Mark
+      changes:
+        - createTable:
+            tableName: refund
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    autoIncrement: true
+              - column:
+                  name: refunded_amount
+                  type: decimal(19,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: reason
+                  type: text
+              - column:
+                  name: payment_transaction_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_payment_transaction
+                    referencedTableName: payment_transaction
+                    referencedColumnNames: id
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+
